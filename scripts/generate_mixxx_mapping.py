@@ -53,7 +53,7 @@ def beatSyncButton(ch):
             </control>
     ''')
 
-def volumeRate(ch):
+def volumeFader(ch):
     return('''
             <control>
                 <group>[Channel''' + str(ch) +  ''']</group>
@@ -111,14 +111,44 @@ def lowEqKnob(ch):
             </control>
 
     ''')
+
+def pitchFader(ch):
+    return('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>rate</key>
+                <description>MIDI Learned from 1410 messages.</description>
+                <status>0xB''' + str(ch - 1) + '''</status>
+                <midino>0x00</midino>
+                <options>
+                    <invert/>
+                </options>
+            </control>
+    ''')
+
 def headphoneListenButton(ch):
     return('''
             <control>
                 <group>[Channel''' + str(ch) +  ''']</group>
                 <key>pfl</key>
-                <description>MIDI Learned from 1 messages.</description>
-                <status>0x9''' + str(ch - 1) +  '''</status>
-                <midino>0x34</midino>
+                <description>MIDI Learned from 2 messages.</description>
+                <status>0x94</status>
+                <midino>0x5''' + str(4 + (ch - 1)) + '''</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+
+def trimKnob(ch):
+    return('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>pregain</key>
+                <description>MIDI Learned from 454 messages.</description>
+                <status>0xB4</status>
+                <midino>0x0''' + str(ch - 1) + '''</midino>
                 <options>
                     <normal/>
                 </options>
@@ -477,7 +507,7 @@ if __name__ == "__main__":
     executeBlockForAllChannel(cueButton)
     
     xmlComment("Volume Fader")
-    executeBlockForAllChannel(volumeRate)
+    executeBlockForAllChannel(volumeFader)
 
     xmlComment("High EQ Knob")
     executeBlockForAllChannel(highEqKnob)
@@ -487,11 +517,18 @@ if __name__ == "__main__":
 
     xmlComment("Low EQ Knob")
     executeBlockForAllChannel(lowEqKnob)
+
+    xmlComment("Pitch Knob")
+    executeBlockForAllChannel(pitchFader)
+
+    xmlComment("HeadphoneListen Button")
+    executeBlockForAllChannel(headphoneListenButton)
+
+    xmlComment("Trim knob")
+    executeBlockForAllChannel(trimKnob)
     """
     xmlComment("BeatSync Button")
     executeBlockForAllChannel(beatSyncButton)
-    xmlComment("HeadphoneListen Button")
-    executeBlockForAllChannel(headphoneListenButton)
     xmlComment("Quantize Button")
     executeBlockForAllChannel(quantizeButton)
         
