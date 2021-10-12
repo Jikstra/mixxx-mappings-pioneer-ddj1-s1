@@ -6,7 +6,9 @@ def header():
 <MixxxControllerPreset mixxxVersion="" schemaVersion="1">
     <info/>
     <controller id="PIONEER">
-        <scriptfiles/>
+        <scriptfiles>
+            <file filename="PIONEER_DDJ-S1.midi.js" functionprefix="PionerDDJS1"/>
+        </scriptfiles>
         <controls>
     ''')
 
@@ -409,6 +411,47 @@ def tempoReset(ch):
             </control>
     ''')
 
+def trackBrowse():
+    return('''
+            <control>
+                <group>[Library]</group>
+                <key>PionerDDJS1.trackBrowse</key>
+                <status>0xB4</status>
+                <midino>0x40</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+
+def loadTrack(ch):
+    return('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>LoadSelectedTrack</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+def jogwheel(ch):
+    return ('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB''' + str(ch - 1) +  '''</status>
+                <midino>0x21</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+
+    ''')
+
 def generateEQRate(parameter, midino):
     def eqRate(ch):
         return('''
@@ -475,6 +518,7 @@ def generateFXKill(parameter, midino):
         ''')
     return fxKill
 
+
 def footer():
     return('''
         </controls>
@@ -526,6 +570,16 @@ if __name__ == "__main__":
 
     xmlComment("Trim knob")
     executeBlockForAllChannel(trimKnob)
+    
+    xmlComment("Track browse")
+    print(trackBrowse())
+
+    xmlComment("Load track Button")
+    executeBlockForAllChannel(loadTrack)
+
+    xmlComment("Jogwheel")
+    executeBlockForAllChannel(jogwheel)
+
     """
     xmlComment("BeatSync Button")
     executeBlockForAllChannel(beatSyncButton)
