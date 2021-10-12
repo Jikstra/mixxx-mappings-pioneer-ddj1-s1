@@ -12,5 +12,7 @@ As the title states, this is a mapping for the Pioneer DDJ-S1 controller for the
   - crossfader is not implemented, should be easy (also crossfader assignment)
 - hot cues are not implemented yet
 - no leds are working yet
+  - there is a script in scripts to send midi messages
+  - and pioneer actually documented the midi messages to turn leds on/off: https://faq.pioneerdj.com/files/img/DDJ-S1_MIDI_Messages_2.pdf
 - tempofader works
   - sync button not implemented
