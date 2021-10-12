@@ -2,7 +2,9 @@
 <MixxxControllerPreset mixxxVersion="" schemaVersion="1">
     <info/>
     <controller id="PIONEER">
-        <scriptfiles/>
+        <scriptfiles>
+            <file filename="PIONEER_DDJ-S1.midi.js" functionprefix="PionerDDJS1"/>
+        </scriptfiles>
         <controls>
     
 
@@ -251,6 +253,278 @@
                 <description>MIDI Learned from 454 messages.</description>
                 <status>0xB4</status>
                 <midino>0x01</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+
+            <!-- Track browse -->
+
+            <control>
+                <group>[Library]</group>
+                <key>PionerDDJS1.trackBrowse</key>
+                <status>0xB4</status>
+                <midino>0x40</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    
+
+
+            <!-- Load track Button -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>LoadSelectedTrack</key>
+                <status>0x90</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>LoadSelectedTrack</key>
+                <status>0x91</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+
+            <!-- Jogwheel -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB0</status>
+                <midino>0x21</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB0</status>
+                <midino>0x22</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>PionerDDJS1.wheelTouch</key>
+                <status>0x90</status>
+                <midino>0x36</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB1</status>
+                <midino>0x21</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB1</status>
+                <midino>0x22</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PionerDDJS1.wheelTouch</key>
+                <status>0x91</status>
+                <midino>0x36</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    
+
+
+            <!-- Loop buttons/rotary encoder -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_in</key>
+                <status>0x90</status>
+                <midino>0x10</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>loop_out</key>
+                <status>0x90</status>
+                <midino>0x11</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>reloop_exit</key>
+                <status>0x90</status>
+                <midino>0x12</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>beatloop_activate</key>
+                <status>0x90</status>
+                <midino>0x15</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>PionerDDJS1.loopDoubleHalve</key>
+                <status>0xB0</status>
+                <midino>0x13</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_in</key>
+                <status>0x91</status>
+                <midino>0x10</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>loop_out</key>
+                <status>0x91</status>
+                <midino>0x11</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>reloop_exit</key>
+                <status>0x91</status>
+                <midino>0x12</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>beatloop_activate</key>
+                <status>0x91</status>
+                <midino>0x15</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PionerDDJS1.loopDoubleHalve</key>
+                <status>0xB1</status>
+                <midino>0x13</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    
+
+
+            <!-- Slip button -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>slip_enabled</key>
+                <status>0x90</status>
+                <midino>0x40</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>slip_enabled</key>
+                <status>0x91</status>
+                <midino>0x40</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+
+            <!-- Needle search -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>playposition</key>
+                <status>0xB0</status>
+                <midino>0x03</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>playposition</key>
+                <status>0xB1</status>
+                <midino>0x03</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+
+            <!-- Reverse button -->
+
+            <control>
+                <group>[Channel1]</group>
+                <key>reverse</key>
+                <status>0x90</status>
+                <midino>0x38</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    
+
+            <control>
+                <group>[Channel2]</group>
+                <key>reverse</key>
+                <status>0x91</status>
+                <midino>0x38</midino>
                 <options>
                     <normal/>
                 </options>

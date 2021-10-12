@@ -42,6 +42,24 @@ PionerDDJS1.wheelTurn = function(channel, control, value, status, group) {
   }
 }
 
+PionerDDJS1.wheelTouch = function(channel, control, value, status, group) {
+  var deckNumber = script.deckFromGroup(group);
+  if (value === 0x7F) {  // Some wheels send 0x90 on press and release, so you need to check the value
+      var alpha = 1.0/8;
+      var beta = alpha/32;
+      engine.scratchEnable(deckNumber, 128, 33+1/3, alpha, beta);
+  } else {    // If button up
+      engine.scratchDisable(deckNumber);
+  }
+}
+PionerDDJS1.loopDoubleHalve = function(channel, control, value, status, group) {
+  var deckNumber = script.deckFromGroup(group);
+  if (value === 0x7F) {
+    engine.setValue(group, 'loop_halve', 1);
+  } else {
+    engine.setValue(group, 'loop_double', 1);
+  }
+}
 
 PionerDDJS1.shutdown = function() {
   DBG("Goodbye from PionerDDJS1!");

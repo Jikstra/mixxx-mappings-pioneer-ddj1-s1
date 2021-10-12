@@ -449,8 +449,114 @@ def jogwheel(ch):
                     <Script-Binding/>
                 </options>
             </control>
-
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>PionerDDJS1.wheelTurn</key>
+                <status>0xB''' + str(ch - 1) +  '''</status>
+                <midino>0x22</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>PionerDDJS1.wheelTouch</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x36</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
     ''')
+
+def loop(ch):
+    return ('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>loop_in</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x10</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>loop_out</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x11</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>reloop_exit</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x12</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>beatloop_activate</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x15</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>PionerDDJS1.loopDoubleHalve</key>
+                <status>0xB''' + str(ch - 1) +  '''</status>
+                <midino>0x13</midino>
+                <options>
+                    <Script-Binding/>
+                </options>
+            </control>
+    ''')
+
+def slipButton(ch):
+    return ('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>slip_enabled</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x40</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+def needleSearch(ch):
+    return ('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>playposition</key>
+                <status>0xB''' + str(ch - 1) +  '''</status>
+                <midino>0x03</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
+def reverseButton(ch):
+    return ('''
+            <control>
+                <group>[Channel''' + str(ch) +  ''']</group>
+                <key>reverse</key>
+                <status>0x9''' + str(ch - 1) +  '''</status>
+                <midino>0x38</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+    ''')
+
 
 def generateEQRate(parameter, midino):
     def eqRate(ch):
@@ -579,6 +685,18 @@ if __name__ == "__main__":
 
     xmlComment("Jogwheel")
     executeBlockForAllChannel(jogwheel)
+
+    xmlComment("Loop buttons/rotary encoder")
+    executeBlockForAllChannel(loop)
+
+    xmlComment("Slip button")
+    executeBlockForAllChannel(slipButton)
+
+    xmlComment("Needle search")
+    executeBlockForAllChannel(needleSearch)
+
+    xmlComment("Reverse button")
+    executeBlockForAllChannel(reverseButton)
 
     """
     xmlComment("BeatSync Button")
